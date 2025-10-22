@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 2px solid red;
+  height: 100vh;
+}
+
+.container {
+  border: 2px solid;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background-color: rgb(29, 76, 220);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titles {
+  text-align: center;
+  color: rgb(202, 173, 10);
+  margin-top: 100px;
+}
+
+.mainTitle {
+  font-size: 4rem;
+}
+
+.subTitle {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
