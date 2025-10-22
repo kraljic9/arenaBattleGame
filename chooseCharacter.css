@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url(ancient-roman-arena-gladiators-fight-600nw-1870716847.webp);
+  background-size: cover;
+}
+
+.container {
+  border-radius: 10px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background-color: rgb(29, 76, 220);
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.character-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 3rem;
+  color: rgb(202, 173, 10);
+}
+
+.character {
+  width: 100px;
+}
+
+.character-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.character-box {
+  border: 2px solid black;
+  padding: 20px;
+  width: 200px;
+}
+
+.character-class {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.character-stats {
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
