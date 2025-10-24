@@ -30,12 +30,10 @@ body {
   justify-content: space-around;
   margin-top: 60px;
   text-align: center;
-  border: 1px solid;
   width: 100%;
 }
 
 .playerOne-box {
-  border: 2px solid black;
   padding: 20px;
   width: 200px;
   height: 250px;
@@ -46,7 +44,6 @@ body {
 }
 
 .computer-box {
-  border: 2px solid black;
   padding: 20px;
   width: 200px;
   height: 250px;
@@ -56,12 +53,21 @@ body {
   border-radius: 10px;
 }
 
+.character-class {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.user-name {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 .character {
   width: 100px;
 }
 
 .options {
-  border: 1px solid black;
   position: absolute;
   left: 5%;
   display: flex;
@@ -77,10 +83,29 @@ body {
   border: 2px solid gray;
 }
 
-.player-side {
-  border: 1px solid;
+.player-stats {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 5px solid rgb(81, 46, 46);
+  background-color: silver;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.computer-side {
+.computer-stats {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border: 1px solid;
+  border: 5px solid rgb(81, 46, 46);
+  background-color: silver;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 10px;
 }
