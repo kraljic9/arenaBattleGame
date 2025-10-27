@@ -22,6 +22,15 @@ class Warrior extends Character {
     this.attack += 10;
     return this.attack;
   }
+
+  attackOpponent(target) {
+    target.health -= this.attack;
+  }
+
+  defende(target) {
+    this.health += target.attack;
+    return this.health;
+  }
 }
 
 class Mage extends Character {
@@ -34,6 +43,15 @@ class Mage extends Character {
     this.mana += 20;
     return this.mana;
   }
+
+  attackOpponent(target) {
+    target.health -= this.attack;
+  }
+
+  defende(target) {
+    this.health += target.attack;
+    return this.health;
+  }
 }
 
 class Rogue extends Character {
@@ -43,6 +61,15 @@ class Rogue extends Character {
 
   specialAbility() {
     this.health += 10;
+    return this.health;
+  }
+
+  attackOpponent(target) {
+    target.health -= this.attack;
+  }
+
+  defende(target) {
+    this.health += target.attack;
     return this.health;
   }
 }
