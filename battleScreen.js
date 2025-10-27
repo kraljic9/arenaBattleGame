@@ -43,8 +43,9 @@ if (raw) {
     playerAbility.innerHTML = `Mana🌀: ${player.mana}`;
   } else if (player.className === "Rogue") {
     playerImage.src = "rogue.webp";
-    playerHealth.innerHTML = `Health❤️:${player.health}`;
-    playerAttack.innerHTML = `Attack⚔️:${player.attack}`;
+    playerHealth.innerHTML = `Health❤️: ${player.health}`;
+    playerAttack.innerHTML = `Attack⚔️: ${player.attack}`;
+    playerAbility.innerHTML = "Ability💚: Heal";
   }
 }
 
