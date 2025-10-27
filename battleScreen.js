@@ -67,6 +67,25 @@ if (rawPc) {
   } else if (pcSec.type === "Rogue") {
     computer = new Rogue(pcSec.className, pcSec.health, pcSec.attack);
   }
+
+  pcClass.innerHTML = `${computer.className}`;
+
+  if (computer.className === "Warrior") {
+    pcImage.src = "knight.webp";
+    pcHealth.innerHTML = `Health❤️: ${player.health}`;
+    pcAttack.innerHTML = `Attack⚔️: ${player.attack}`;
+    pcAbility.innerHTML = "Ability😡: Rage";
+  } else if (player.className === "Mage") {
+    pcImage.src = "mage.webp";
+    pcHealth.innerHTML = `Health❤️: ${player.health}`;
+    pcAttack.innerHTML = `Attack⚔️: ${player.attack}`;
+    pcAbility.innerHTML = `Mana🌀: ${player.mana}`;
+  } else if (player.className === "Rogue") {
+    pcImage.src = "rogue.webp";
+    pcHealth.innerHTML = `Health❤️: ${player.health}`;
+    pcAttack.innerHTML = `Attack⚔️: ${player.attack}`;
+    pcAbility.innerHTML = "Ability💚: Heal";
+  }
 }
 
 console.log("Player:", player);
