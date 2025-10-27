@@ -83,12 +83,12 @@ if (rawPc) {
     pcHealth.innerHTML = `Health❤️: ${player.health}`;
     pcAttack.innerHTML = `Attack⚔️: ${player.attack}`;
     pcAbility.innerHTML = "Ability😡: Rage";
-  } else if (player.className === "Mage") {
+  } else if (computer.className === "Mage") {
     pcImage.src = "mage.webp";
     pcHealth.innerHTML = `Health❤️: ${player.health}`;
     pcAttack.innerHTML = `Attack⚔️: ${player.attack}`;
     pcAbility.innerHTML = `Mana🌀: ${player.mana}`;
-  } else if (player.className === "Rogue") {
+  } else if (computer.className === "Rogue") {
     pcImage.src = "rogue.webp";
     pcHealth.innerHTML = `Health❤️: ${player.health}`;
     pcAttack.innerHTML = `Attack⚔️: ${player.attack}`;
@@ -100,18 +100,6 @@ console.log("Player:", player);
 console.log("Computer:", computer);
 
 function playGame() {
-  if (player.health >= 100) {
-    player.health = 100;
-  } else if (computer.health >= 100) {
-    computer.health = 100;
-  } else if (player.health <= 0) {
-    console.log(`Computer is winner`);
-    return;
-  } else if (computer.health <= 0) {
-    console.log("Pc is winner");
-    return;
-  }
-
   attackBtn.addEventListener("click", function () {
     attackBtnClicked = true;
     player.attackOpponent(computer);
@@ -121,23 +109,35 @@ function playGame() {
   });
 
   defendBtn.addEventListener("click", function () {
-    attackBtnClicked = true;
+    defendBtnClicked = true;
     player.defende(computer);
     computerSelect();
-    attackBtnClicked = false;
+    defendBtnClicked = false;
   });
 
   specialBtn.addEventListener("click", function () {
-    attackBtnClicked = true;
+    specialBtnClicked = true;
     player.specialAbility();
     computerSelect();
-    attackBtnClicked = false;
+    specialBtnClicked = false;
   });
 
   playerHealth.innerHTML = `Health❤️: ${player.health}`;
   playerAttack.innerHTML = `Attack⚔️: ${computer.attack};`;
   pcHealth.innerHTML = `Health❤️: ${computer.health}`;
   pcAttack.innerHTML = `Attack⚔️: ${computer.attack}`;
+
+  if (player.health > 100) {
+    player.health = 100;
+  } else if (computer.health > 100) {
+    computer.health = 100;
+  } else if (player.health <= 0) {
+    console.log(`Computer is winner`);
+    return;
+  } else if (computer.health <= 0) {
+    console.log("Pc is winner");
+    return;
+  }
 }
 
 function computerSelect() {
