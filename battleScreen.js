@@ -7,6 +7,14 @@ let playerHealth = document.querySelector(".player-health");
 let playerAttack = document.querySelector(".player-attack");
 let playerAbility = document.querySelector(".player-ability");
 
+// Computer items
+
+let pcName = document.querySelector("#computer-class");
+let pcImage = document.querySelector("#computer-image");
+let pcHealth = document.querySelector("#computer-health");
+let pcAttack = document.querySelector("#computer-attack");
+let pcAbility = document.querySelector("#computer-ability");
+
 let raw = sessionStorage.getItem("playersChoice");
 let player;
 
