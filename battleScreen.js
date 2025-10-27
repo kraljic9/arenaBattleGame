@@ -1,15 +1,15 @@
 import { Warrior, Mage, Rogue } from "./chooseCharacter.js";
 
 // Player items
-let playerName = document.querySelector(".player-class");
-let playerImage = document.querySelector(".player-image");
-let playerHealth = document.querySelector(".player-health");
-let playerAttack = document.querySelector(".player-attack");
-let playerAbility = document.querySelector(".player-ability");
+let playerClass = document.querySelector("#player-class");
+let playerImage = document.querySelector("#player-image");
+let playerHealth = document.querySelector("#palyer-health");
+let playerAttack = document.querySelector("#player-attack");
+let playerAbility = document.querySelector("#player-ability");
 
 // Computer items
 
-let pcName = document.querySelector("#computer-class");
+let pcClass = document.querySelector("#computer-class");
 let pcImage = document.querySelector("#computer-image");
 let pcHealth = document.querySelector("#computer-health");
 let pcAttack = document.querySelector("#computer-attack");
@@ -27,6 +27,24 @@ if (raw) {
     player = new Mage(sec.className, sec.health, sec.attack, sec.mana);
   } else if (sec.type === "Rogue") {
     player = new Rogue(sec.className, sec.health, sec.attack);
+  }
+
+  playerClass.innerHTML = `${player.className}`;
+
+  if (player.className === "Warrior") {
+    playerImage.src = "knight.webp";
+    playerHealth.innerHTML = `Health❤️: ${player.health}`;
+    playerAttack.innerHTML = `Attack⚔️: ${player.attack}`;
+    playerAbility.innerHTML = "Ability😡: Rage";
+  } else if (player.className === "Mage") {
+    playerImage.src = "mage.webp";
+    playerHealth.innerHTML = `Health❤️: ${player.health}`;
+    playerAttack.innerHTML = `Attack⚔️: ${player.attack}`;
+    playerAbility.innerHTML = `Mana🌀: ${player.mana}`;
+  } else if (player.className === "Rogue") {
+    playerImage.src = "rogue.webp";
+    playerHealth.innerHTML = `Health❤️:${player.health}`;
+    playerAttack.innerHTML = `Attack⚔️:${player.attack}`;
   }
 }
 
