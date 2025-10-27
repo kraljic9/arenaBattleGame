@@ -1,9 +1,6 @@
-/*
-let Warriror1 = new Warriror("Warrior", 100, 20);
-let mage1 = new Mage("Mage", 100, 25, 100);
-let rouge1 = new Rouge("Rouge", 100, 20);
-*/
 let characterBoxes = document.querySelectorAll(".character-box");
+let player;
+let computer;
 
 class Character {
   constructor(className, health, attack) {
@@ -17,7 +14,7 @@ class Character {
   }
 }
 
-class Warriror extends Character {
+class Warrior extends Character {
   constructor(className, health, attack) {
     super(className, health, attack);
   }
@@ -35,10 +32,11 @@ class Mage extends Character {
 
   specialAbility() {
     this.mana += 20;
+    return this.mana;
   }
 }
 
-class Rouge extends Character {
+class Rogue extends Character {
   constructor(className, health, attack) {
     super(className, health, attack);
   }
@@ -49,12 +47,87 @@ class Rouge extends Character {
   }
 }
 
-console.log(Warriror1);
-console.log(rouge1);
-console.log(mage1);
+function playerSelection() {
+  characterBoxes.forEach((box) => {
+    box.addEventListener("click", function () {
+      let playersChoice;
 
-characterBoxes.forEach((box) => {
-  box.addEventListener("click", function () {
-    window.location.href = "battleScreen.html";
+      if (box.id === "warrior") {
+        playersChoice = {
+          type: "Warrior",
+          className: "Warrior",
+          health: 100,
+          attack: 20,
+        };
+      }
+
+      if (box.id === "mage") {
+        playersChoice = {
+          type: "Mage",
+          className: "Mage",
+          health: 100,
+          attack: 25,
+          mana: 100,
+        };
+      }
+
+      if (box.id === "rogue") {
+        playersChoice = {
+          type: "Rogue",
+          className: "Rogue",
+          health: 100,
+          attack: 25,
+        };
+      }
+
+      if (playersChoice) {
+        sessionStorage.setItem("playersChoice", JSON.stringify(playersChoice));
+        player = playersChoice;
+        window.location.href = "battleScreen.html";
+      }
+    });
   });
-});
+}
+
+function computerSelection() {
+  let pcChoice = Math.floor(Math.random() * 3) + 1;
+
+  if (pcChoice === 1) {
+    computer = {
+      type: "Warrior",
+      className: "Warrior",
+      health: 100,
+      attack: 20,
+    };
+  }
+
+  if (pcChoice === 2) {
+    computer = {
+      type: "Mage",
+      className: "Mage",
+      health: 100,
+      attack: 25,
+      mana: 100,
+    };
+  }
+
+  if (pcChoice === 3) {
+    computer = {
+      type: "Rogue",
+      className: "Rogue",
+      health: 100,
+      attack: 25,
+    };
+  }
+
+  if (computer) {
+    sessionStorage.setItem("computersChoice", JSON.stringify(computer));
+  }
+
+  console.log("Computer has choosen");
+}
+
+computerSelection();
+playerSelection();
+
+export { Warrior, Mage, Rogue };
