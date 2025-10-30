@@ -103,14 +103,15 @@ function playGame() {
   attackBtn.addEventListener("click", function () {
     attackBtnClicked = true;
     player.attackOpponent(computer);
+    pcHealth.innerHTML = `Health❤️: ${player.health}`;
     computerSelect();
     attackBtnClicked = false;
-    return computer.health;
   });
 
   defendBtn.addEventListener("click", function () {
     defendBtnClicked = true;
     player.defende(computer);
+    playerHealth.innerHTML = `Health❤️: ${player.health}`;
     computerSelect();
     defendBtnClicked = false;
   });
@@ -118,6 +119,7 @@ function playGame() {
   specialBtn.addEventListener("click", function () {
     specialBtnClicked = true;
     player.specialAbility();
+    playerHealth.innerHTML = `Health❤️: ${player.health}`;
     computerSelect();
     specialBtnClicked = false;
   });
@@ -148,13 +150,15 @@ function computerSelect() {
     console.log(
       `Computer has attacked player, player takes ${computer.attack} damage`
     );
-    return player.health;
+    playerHealth.innerHTML = `Health❤️: ${player.health}`;
   } else if (computerAction === 2) {
     computer.defende(player);
     console.log(`Computer has blocked players attack`);
+    pcHealth.innerHTML = `Health❤️: ${player.health}`;
   } else if (computerAction === 3) {
     computer.specialAbility();
     console.log(`Computer has used his special ability`);
+    pcHealth.innerHTML = `Health❤️: ${player.health}`;
   }
 
   playerHealth.innerHTML = `Health❤️: ${player.health}`;

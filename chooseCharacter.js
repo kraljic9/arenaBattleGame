@@ -25,6 +25,7 @@ class Warrior extends Character {
 
   attackOpponent(target) {
     target.health -= this.attack;
+    return target.health;
   }
 
   defende(target) {
@@ -68,6 +69,7 @@ class Rogue extends Character {
     target.health -= this.attack;
   }
 
+  // when defend is clicked make attack of opponent 0 at that moment, but then how will you return it to normal after?
   defende(target) {
     this.health += target.attack;
     return this.health;
