@@ -23,6 +23,9 @@ let attackBtnClicked;
 let defendBtnClicked;
 let specialBtnClicked;
 
+let gameOverContainer = document.querySelector(".game-over-container");
+let gameOverTitle = document.querySelector(".game-over-title");
+
 let raw = sessionStorage.getItem("playersChoice");
 let player;
 
@@ -179,6 +182,14 @@ function stopGame() {
     attackBtn.classList.add("removed");
     defendBtn.classList.add("removed");
     specialBtn.classList.add("removed");
+
+    gameOverContainer.classList.remove("removed");
+
+    if (player.health > computer.health) {
+      gameOverTitle.innerHTML = `Player Wins!`;
+    } else {
+      gameOverTitle.innerHTML = `Computer Wins!`;
+    }
   }
 }
 
