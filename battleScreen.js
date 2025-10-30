@@ -100,46 +100,46 @@ console.log("Player:", player);
 console.log("Computer:", computer);
 
 function playGame() {
-  attackBtn.addEventListener("click", function () {
+  function attack() {
     attackBtnClicked = true;
     player.attackOpponent(computer);
-    pcHealth.innerHTML = `Health❤️: ${player.health}`;
+    pcHealth.innerHTML = `Health❤️: ${computer.health}`;
+    console.log(computer.health);
     computerSelect();
     attackBtnClicked = false;
-  });
+    stopGame();
+  }
 
-  defendBtn.addEventListener("click", function () {
+  attackBtn.addEventListener("click", attack);
+
+  function defende() {
     defendBtnClicked = true;
     player.defende(computer);
     playerHealth.innerHTML = `Health❤️: ${player.health}`;
+    console.log(player.health);
     computerSelect();
     defendBtnClicked = false;
-  });
+    stopGame();
+  }
 
-  specialBtn.addEventListener("click", function () {
+  defendBtn.addEventListener("click", defende);
+
+  function special() {
     specialBtnClicked = true;
     player.specialAbility();
     playerHealth.innerHTML = `Health❤️: ${player.health}`;
+    console.log(player.health);
     computerSelect();
     specialBtnClicked = false;
-  });
+    stopGame();
+  }
+
+  specialBtn.addEventListener("click", special);
 
   playerHealth.innerHTML = `Health❤️: ${player.health}`;
-  playerAttack.innerHTML = `Attack⚔️: ${computer.attack};`;
+  playerAttack.innerHTML = `Attack⚔️: ${player.attack};`;
   pcHealth.innerHTML = `Health❤️: ${computer.health}`;
   pcAttack.innerHTML = `Attack⚔️: ${computer.attack}`;
-
-  if (player.health > 100) {
-    player.health = 100;
-  } else if (computer.health > 100) {
-    computer.health = 100;
-  } else if (player.health <= 0) {
-    console.log(`Computer is winner`);
-    return;
-  } else if (computer.health <= 0) {
-    console.log("Pc is winner");
-    return;
-  }
 }
 
 function computerSelect() {
@@ -150,26 +150,40 @@ function computerSelect() {
     console.log(
       `Computer has attacked player, player takes ${computer.attack} damage`
     );
+    console.log(player.health);
     playerHealth.innerHTML = `Health❤️: ${player.health}`;
   } else if (computerAction === 2) {
     computer.defende(player);
     console.log(`Computer has blocked players attack`);
-    pcHealth.innerHTML = `Health❤️: ${player.health}`;
+    console.log(computer.health);
+    pcHealth.innerHTML = `Health❤️: ${pcHealth.health}`;
   } else if (computerAction === 3) {
     computer.specialAbility();
+    console.log(computer.health);
+    console.log(computer.attack);
     console.log(`Computer has used his special ability`);
-    pcHealth.innerHTML = `Health❤️: ${player.health}`;
+    pcHealth.innerHTML = `Health❤️: ${pcHealth.health}`;
+    pcAttack.innerHTML = `Attack⚔️: ${computer.attack}`;
   }
 
   playerHealth.innerHTML = `Health❤️: ${player.health}`;
-  playerAttack.innerHTML = `Attack⚔️: ${computer.attack};`;
+  playerAttack.innerHTML = `Attack⚔️: ${player.attack};`;
   pcHealth.innerHTML = `Health❤️: ${computer.health}`;
   pcAttack.innerHTML = `Attack⚔️: ${computer.attack}`;
 
   console.log(computerAction);
 }
 
+function stopGame() {
+  if (player.health < 1 || computer.health < 1) {
+    attackBtn.classList.add("removed");
+    defendBtn.classList.add("removed");
+    specialBtn.classList.add("removed");
+  }
+}
+
 playGame();
+
 /*
 When buttons are clicked do a action attack, defende, ability after also set button clicked value to true after action is finished trigger computer choice of action, set button clicked value to false,    
 */
