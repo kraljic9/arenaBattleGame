@@ -29,7 +29,7 @@ class Warrior extends Character {
   }
 
   defende(target) {
-    this.health += target.attack;
+    this.health += target.attack - target.attack;
     return this.health;
   }
 }

@@ -25,6 +25,8 @@ let specialBtnClicked;
 
 let gameOverContainer = document.querySelector(".game-over-container");
 let gameOverTitle = document.querySelector(".game-over-title");
+let restartBtn = document.querySelector(".restart-btn");
+let chooseAgainBtn = document.querySelector(".choose-again");
 
 let raw = sessionStorage.getItem("playersChoice");
 let player;
@@ -209,6 +211,18 @@ function controlHealth() {
   if (computer.health > 100) {
     computer.health = 100;
   }
+}
+
+restartBtn.addEventListener("click", restartGame);
+
+function restartGame() {
+  location.reload();
+}
+
+chooseAgainBtn.addEventListener("click", chooseAgain);
+
+function chooseAgain() {
+  window.location.href = `chooseCharacter.html`;
 }
 
 playGame();
